@@ -1,0 +1,47 @@
+/* Navbar.module.css */
+
+.navbar {
+  background: #293042;
+  display: flex;
+  padding: 6px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.hidden {
+  /* уезжает вверх за границу экрана */
+  top: -80px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin-left: auto; /* «толкает» меню вправо */
+  padding: 0 40px; /* отступы слева/справа */
+}
+
+.navList li {
+  margin: 0 8px;
+}
+
+.navList a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* hovered link и активная ссылка */
+.navList a:hover,
+.active {
+  background: #00e676;
+  color: #000;
+}
