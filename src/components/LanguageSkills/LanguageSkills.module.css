@@ -1,0 +1,17 @@
+/* src/components/LanguageSkills/LanguageSkills.module.css */
+.section {
+  padding: 80px 20px;
+  background: #fff;
+}
+.title {
+  text-align: center;
+  color: #555;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}

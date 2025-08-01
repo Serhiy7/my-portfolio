@@ -1,0 +1,46 @@
+/* поворачиваем всё SVG, чтобы 0% было сверху */
+.svg {
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  overflow: visible;
+}
+
+/* фоновой круг остаётся без изменений */
+.bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 12;
+}
+
+/* цветная дуга */
+.fg {
+  fill: none;
+  stroke: #00e676;
+  stroke-width: 12;
+  stroke-linecap: round;
+  /* Убираем transition тут, он будет устанавливаться из JS */
+}
+
+/* цифры — возвращаем их в нормальный ротор */
+.text {
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  font-size: 1.2em;
+  fill: #555;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+/* подпись под кругом */
+.label {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+/* обёртка */
+.wrapper {
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px;
+}
