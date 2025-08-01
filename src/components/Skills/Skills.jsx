@@ -55,7 +55,7 @@ export function Skills() {
     {
       iconClass: "fa-solid fa-clock",
       label: "Time Management",
-      width: "90%",
+      width: "78%",
       color: "#ff9800",
     },
   ];
