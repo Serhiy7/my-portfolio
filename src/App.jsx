@@ -3,7 +3,7 @@ import { Hero } from "./components/Hero/Hero";
 import { About } from "./components/About/About";
 import { Skills } from "./components/Skills/Skills";
 import { LanguageSkills } from "./components/LanguageSkills/LanguageSkills";
-// …и остальные
+import { Experience } from "./components/Experience/Experience";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <About />
       <Skills />
       <LanguageSkills />
-      {/* <Experience /> */}
+      <Experience />
       {/* <Projects /> */}
       {/* <Contact /> */}
     </>

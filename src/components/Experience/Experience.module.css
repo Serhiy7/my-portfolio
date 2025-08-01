@@ -1,0 +1,245 @@
+.experience {
+  padding: 80px 20px;
+  background: #fff;
+  color: #333;
+  font-family: "Inter", sans-serif;
+}
+
+/* Заголовок */
+.header {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  text-align: center;
+  position: relative;
+}
+.header hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+.header h2 {
+  display: inline-block;
+  padding: 0 20px;
+  background: #fff;
+  position: relative;
+  top: -13px;
+  font-weight: 700;
+  color: #222;
+  border: 2px solid #00e676;
+}
+
+/* Таймлайн */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 60px; /* место под последнюю */
+}
+.line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ddd;
+  transform: translateX(-50%);
+}
+
+/* Базовая запись */
+.entry {
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  margin: 0;
+}
+/* «Нахлёст» */
+.entry + .entry {
+  margin-top: -40px;
+}
+
+.entry:last-of-type {
+  margin-top: -60px;
+}
+
+.left {
+  text-align: right;
+}
+.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* появление поочерёдно сверху-вниз */
+.inView .entry:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+.inView .entry:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+.inView .entry:nth-child(4) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+.inView .entry:nth-child(5) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.8s;
+}
+.inView .entry:nth-child(6) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1s;
+}
+.inView .entry:nth-child(7) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+
+/* выезд карточек к центру */
+.inView .entry:nth-child(2) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+.inView .entry:nth-child(3) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+.inView .entry:nth-child(4) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s;
+}
+.inView .entry:nth-child(5) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+}
+.inView .entry:nth-child(6) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1s;
+}
+.inView .entry:nth-child(7) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.2s;
+}
+
+/* Точка */
+.dot {
+  position: absolute;
+  top: 36px;
+  width: 12px;
+  height: 12px;
+  background: #00e676;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.left .dot {
+  right: -6px;
+}
+.right .dot {
+  left: -6px;
+}
+
+/* Карточка — «выезжает» к центру */
+.card {
+  display: inline-block;
+  background: #f4f7fa;
+  padding: 14px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: calc(100% - 52px);
+  transform: translateX(var(--tx, 0));
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+}
+
+/* задаём начальное смещение по сторонам */
+.left .card {
+  --tx: -50px;
+  margin-right: 40px;
+}
+.right .card {
+  --tx: 50px;
+  margin-left: 40px;
+}
+
+/* анимация «выезда» + делаем видимой */
+.inView .entry:nth-of-type(1) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.2s;
+}
+.inView .entry:nth-of-type(2) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.4s;
+}
+.inView .entry:nth-of-type(3) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s;
+}
+.inView .entry:nth-of-type(4) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+}
+.inView .entry:nth-of-type(5) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1s;
+}
+.inView .entry:nth-of-type(6) .card {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.2s;
+}
+
+/* Содержимое */
+.title {
+  margin: 0 0 6px;
+  color: #00e676;
+  font-size: 18px;
+}
+.period {
+  font-size: 14px;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+.details {
+  list-style: disc inside;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 0;
+}
+.details li {
+  margin-bottom: 6px;
+}
+
+/* Пульс */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
