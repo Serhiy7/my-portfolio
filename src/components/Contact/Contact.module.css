@@ -1,7 +1,9 @@
 .contact {
   --accent: #00e676;
-  --text: #333;
-  --muted: #555;
+  --accent-600: #00cf6b;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --tile-bg: #fff;
+  --tile-br: 16px;
 
   padding: 80px 20px;
   background: #fff;
@@ -11,77 +13,96 @@
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
-
-.col {
-  flex: 1;
-  min-width: 300px;
+@media (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* titles */
-.subtitle {
+.title {
   font-size: 18px;
-  font-weight: 600;
-  color: #555;
-  margin-bottom: 24px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 20px;
+  text-transform: none;
 }
 
-/* list */
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 24px 0;
+/* tiles grid */
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* как на скрине — две колонки */
+  gap: 16px;
+}
+@media (max-width: 520px) {
+  .tiles {
+    grid-template-columns: 1fr;
+  }
 }
 
-.item {
+.tile {
   display: flex;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--tile-bg);
+  border-radius: var(--tile-br);
+  border: 1px solid #f0f2f5;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: #222;
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+.tile:hover {
+  transform: translateY(-2px);
+  border-color: #e6e9ee;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.1);
 }
 
-.icon {
+.badge {
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: var(--accent);
-  border-radius: 4px;
-  margin-right: 12px;
+  font-size: 18px;
   color: #fff;
-  font-size: 14px;
 }
 
-.itemText {
-  color: var(--text);
+/* badge colors — спокойные, близко к твоей палитре */
+.git {
+  background: #24292f;
+}
+.in {
+  background: #0a66c2;
+}
+.mail {
+  background: #00c853;
+} /* близко к accent */
+.tg {
+  background: #2aa6e0;
+}
+.phone {
+  background: #1a73e8;
+}
+.map {
+  background: #ef5350;
 }
 
-.link {
-  color: var(--accent);
-  text-decoration: none;
-}
-.link:hover {
-  text-decoration: underline;
+.tileText {
+  font-size: 15px;
 }
 
-/* socials */
-.socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+/* columns */
+.colLeft {
 }
-
-.social {
-  color: #555;
-  font-size: 16px;
-  transition: color 0.2s ease, transform 0.06s ease;
-}
-.social:hover {
-  color: var(--accent);
-  transform: translateY(-1px);
+.colRight {
 }
 
 /* form */
@@ -93,12 +114,11 @@
 
 .input {
   border: none;
-  border-bottom: 1px solid #ddd;
-  padding: 8px;
+  border-bottom: 1px solid #e2e5ea;
+  padding: 10px 8px;
   font-size: 14px;
-  outline: none;
-  color: var(--text);
   background: transparent;
+  outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .input::placeholder {
@@ -108,50 +128,30 @@
   border-color: var(--accent);
   box-shadow: 0 1px 0 0 var(--accent);
 }
-
 .textarea {
   resize: none;
 }
 
-/* button */
+/* button (не отходим от прежнего акцента) */
 .button {
-  width: 160px;
-  padding: 10px;
-  background: var(--accent);
+  width: 180px;
+  padding: 12px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-600));
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 14px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.06s ease, box-shadow 0.2s ease;
-  box-shadow: 0 6px 16px rgba(0, 230, 118, 0.25);
+  box-shadow: 0 8px 20px rgba(0, 230, 118, 0.25);
+  transition: transform 0.06s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
 .button:hover {
-  background: #00cf6b;
+  filter: saturate(1.05) brightness(0.98);
 }
 .button:active {
   transform: translateY(1px);
 }
-
-/* footer */
-.footer {
-  text-align: center;
-  padding: 20px 0;
-  background: #293042;
-  color: #aaa;
-  margin-top: 40px;
-}
-
-.brand {
-  color: var(--accent);
-  text-decoration: none;
-}
-.brand:hover {
-  text-decoration: underline;
-}
-
-/* responsive */
-@media (max-width: 640px) {
+@media (max-width: 520px) {
   .button {
     width: 100%;
   }
