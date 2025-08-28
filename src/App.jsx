@@ -5,6 +5,7 @@ import { Skills } from "./components/Skills/Skills";
 import { LanguageSkills } from "./components/LanguageSkills/LanguageSkills";
 import { Experience } from "./components/Experience/Experience";
 import { Projects } from "./components/Projects/Projects";
+import { Contact } from "./components/Contact/Contact";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
       <LanguageSkills />
       <Experience />
       <Projects />
-      {/* <Contact /> */}
+      <Contact />
     </>
   );
 }

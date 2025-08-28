@@ -1,0 +1,158 @@
+.contact {
+  --accent: #00e676;
+  --text: #333;
+  --muted: #555;
+
+  padding: 80px 20px;
+  background: #fff;
+}
+
+/* layout */
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.col {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* titles */
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+/* list */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  border-radius: 4px;
+  margin-right: 12px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.itemText {
+  color: var(--text);
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
+/* socials */
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.social {
+  color: #555;
+  font-size: 16px;
+  transition: color 0.2s ease, transform 0.06s ease;
+}
+.social:hover {
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+  color: var(--text);
+  background: transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input::placeholder {
+  color: #9aa0a6;
+}
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 1px 0 0 var(--accent);
+}
+
+.textarea {
+  resize: none;
+}
+
+/* button */
+.button {
+  width: 160px;
+  padding: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.06s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0, 230, 118, 0.25);
+}
+.button:hover {
+  background: #00cf6b;
+}
+.button:active {
+  transform: translateY(1px);
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #293042;
+  color: #aaa;
+  margin-top: 40px;
+}
+
+.brand {
+  color: var(--accent);
+  text-decoration: none;
+}
+.brand:hover {
+  text-decoration: underline;
+}
+
+/* responsive */
+@media (max-width: 640px) {
+  .button {
+    width: 100%;
+  }
+}
