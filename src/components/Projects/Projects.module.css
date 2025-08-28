@@ -1,0 +1,142 @@
+.projects {
+  padding: 80px 20px;
+  background: #f4f7fa;
+}
+
+.header {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  text-align: center;
+  position: relative;
+}
+
+.header hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  display: inline-block;
+  padding: 0 20px;
+  background: #f4f7fa;
+  position: relative;
+  top: -13px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  color: #222;
+  border: 2px solid #00e676;
+}
+
+.cards {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 300px;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.cardContent {
+  padding: 20px;
+}
+
+.cardContent h3 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 8px;
+}
+
+.cardContent p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.tags {
+  margin-bottom: 16px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+/* Tag colors */
+.react {
+  background: #007bff;
+}
+
+.node {
+  background: #6c757d;
+}
+
+.tailwind {
+  background: #00e676;
+}
+
+.vue {
+  background: #42b883;
+}
+
+.firebase {
+  background: #ff5722;
+}
+
+.scss {
+  background: #6f42c1;
+}
+
+.html {
+  background: #e9ecef;
+  color: #333;
+}
+
+.js {
+  background: #ffc107;
+  color: #333;
+}
+
+.gatsby {
+  background: #d63384;
+}
+
+.links {
+  display: flex;
+  gap: 10px;
+}
+
+.links a {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+}
+
+.primaryBtn {
+  background: #007bff;
+  color: #fff !important;
+  border: none;
+}
