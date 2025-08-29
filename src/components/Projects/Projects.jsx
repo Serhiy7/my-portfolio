@@ -1,19 +1,36 @@
 import React from "react";
 import styles from "./Projects.module.css";
+import sh from "../../styles/SectionHeader.module.css";
 import youtubeplayer from "/images/preview-youtubeplayer.png";
 import foodcase from "/images/preview-foodcase.png";
+import { useInView } from "../../hooks/useInView";
 
 export const Projects = () => {
+  // Запускаем анимации, когда секция видна на 25%
+  const [ref, inView] = useInView({ threshold: 0.25 });
+  const [hdrRef, hdrInView] = useInView({ threshold: 0.25 });
+
   return (
-    <section id="projects" className={styles.projects}>
-      <div className={styles.header}>
-        <hr />
-        <h2>My Projects</h2>
+    <section
+      id="projects"
+      ref={ref}
+      className={`${styles.projects} ${inView ? styles.inView : ""}`}
+    >
+      <div
+        ref={hdrRef}
+        className={`${sh.sectionHeader} ${hdrInView ? sh.inView : ""}`}
+      >
+        <h2>
+          <span>My Projects</span>
+        </h2>
       </div>
 
-      <div className={styles.cards}>
+      <div className={`${styles.cards} ${styles.revealBottom}`}>
         {/* Card 1 */}
-        <div className={styles.card}>
+        <div
+          className={`${styles.card} ${styles.stagger}`}
+          style={{ "--d": 1 }}
+        >
           <a
             className={styles.imageLink}
             href="https://youtubeplayer-lyart.vercel.app/"
@@ -70,7 +87,10 @@ export const Projects = () => {
         </div>
 
         {/* Card 2 */}
-        <div className={styles.card}>
+        <div
+          className={`${styles.card} ${styles.stagger}`}
+          style={{ "--d": 2 }}
+        >
           <a
             className={styles.imageLink}
             href="https://serhiy7.github.io/FoodCase/"
@@ -127,7 +147,10 @@ export const Projects = () => {
         </div>
 
         {/* Card 3 */}
-        <div className={styles.card}>
+        <div
+          className={`${styles.card} ${styles.stagger}`}
+          style={{ "--d": 3 }}
+        >
           <div className={styles.imageWrap}>
             <img src="https://picsum.photos/seed/p3/600/300" alt="Project 3" />
           </div>

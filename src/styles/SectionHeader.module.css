@@ -1,0 +1,94 @@
+/* скорости/задержки (можно менять из :root при желании) */
+:root {
+  --hdr-line-dur: 900ms;
+  --hdr-line-delay: 120ms;
+  --hdr-chip-dur: 750ms;
+  --hdr-chip-delay: 320ms;
+}
+
+/* контейнер заголовка */
+.sectionHeader {
+  max-width: var(--section-max, 1000px);
+  margin: 0 auto 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* тонкие линии слева/справа */
+.sectionHeader::before,
+.sectionHeader::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--section-line, #dddddd) 30%,
+    var(--section-line, #dddddd) 70%,
+    transparent
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--hdr-line-dur) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--hdr-line-delay);
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  line-height: 1.1;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  color: #222;
+}
+
+/* “чип” с текстом */
+.sectionHeader h2 span {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 2px solid var(--accent, #00e676);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transform: translateY(14px) scale(0.98);
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform var(--hdr-chip-dur) cubic-bezier(0.22, 1, 0.36, 1)
+      var(--hdr-chip-delay),
+    opacity var(--hdr-chip-dur) ease var(--hdr-chip-delay);
+}
+
+/* ВАЖНО: пустой класс, чтобы CSS-modules экспортировал его */
+.inView {
+}
+
+/* активное состояние (когда контейнер получил класс inView) */
+.sectionHeader.inView::before,
+.sectionHeader.inView::after {
+  transform: scaleX(1);
+}
+.sectionHeader.inView h2 span {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* модификатор (если нужен левосторонний вариант) */
+.left {
+  justify-content: flex-start;
+}
+.left::before {
+  display: none;
+}
+
+/* уважение к системным настройкам */
+@media (prefers-reduced-motion: reduce) {
+  .sectionHeader::before,
+  .sectionHeader::after,
+  .sectionHeader h2 span {
+    transition: none;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useInView } from "../../hooks/useInView";
+import sh from "../../styles/SectionHeader.module.css";
 import styles from "./Experience.module.css";
 
 const entries = [
@@ -55,6 +56,7 @@ const entries = [
 
 export function Experience() {
   const [ref, inView] = useInView({ threshold: 0.3 });
+  const [hdrRef, hdrInView] = useInView({ threshold: 0.3 });
 
   return (
     <section
@@ -62,9 +64,13 @@ export function Experience() {
       ref={ref}
       className={`${styles.experience} ${inView ? styles.inView : ""}`}
     >
-      <div className={styles.header}>
-        <hr />
-        <h2>EXPERIENCE</h2>
+      <div
+        ref={hdrRef}
+        className={`${sh.sectionHeader} ${hdrInView ? sh.inView : ""}`}
+      >
+        <h2>
+          <span>EXPERIENCE</span>
+        </h2>
       </div>
 
       <div className={styles.timeline}>

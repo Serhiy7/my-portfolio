@@ -4,28 +4,6 @@
   background: #fff;
   color: #333;
 }
-.sectionHeader {
-  max-width: 1000px;
-  margin: 0 auto 40px;
-  text-align: center;
-}
-.sectionHeader hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-.sectionHeader h2 {
-  display: inline-block;
-  padding: 0 20px;
-  background: #fff;
-  position: relative;
-  top: -13px;
-  font-weight: 700;
-  color: #222;
-  border: 2px solid #00e676;
-  opacity: 0;
-  transform: translateY(20px);
-}
 
 /* сетка */
 .columns {

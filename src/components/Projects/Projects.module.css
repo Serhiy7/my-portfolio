@@ -5,9 +5,9 @@
   --accent-700: #00b85f;
 
   /* Новая синия палитра для primary кнопок */
-  --primary: #0a66ff;
-  --primary-600: #0a58e6;
-  --primary-700: #094ed1;
+  --primary: #2563eb;
+  --primary-600: #1d4ed8;
+  --primary-700: #1e40af;
 
   /* Светлая “GitHub-like” secondary */
   --gh-text: #24292f;
@@ -19,30 +19,6 @@
 .projects {
   padding: 80px 20px;
   background: #fff;
-}
-
-/* ---------- Header ---------- */
-.header {
-  max-width: 1000px;
-  margin: 0 auto 40px;
-  text-align: center;
-  position: relative;
-}
-.header hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-.header h2 {
-  display: inline-block;
-  padding: 0 20px;
-  background: #fff;
-  position: relative;
-  top: -13px;
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  color: #222;
-  border: 2px solid var(--accent);
 }
 
 /* ---------- Grid (3 / 2 / 1) ---------- */
@@ -212,25 +188,28 @@
 /* Primary (View Project) — синяя */
 .primaryBtn {
   background: var(--primary);
-  border-color: var(--primary);
+  border-color: transparent;
   color: #fff;
-  box-shadow: 0 6px 16px rgba(10, 102, 255, 0.25);
+  border-radius: 12px; /* чуть мягче форма */
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.14);
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.06s ease;
 }
+
 .primaryBtn:hover {
   background: var(--primary-600);
-  border-color: var(--primary-600);
-  box-shadow: 0 8px 20px rgba(10, 102, 255, 0.35);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.18);
 }
+
 .primaryBtn:active {
   background: var(--primary-700);
-  border-color: var(--primary-700);
-  transform: translateY(1px);
+  transform: translateY(0); /* без “прыжка” */
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.16) inset;
 }
 
 /* Focus ring */
 .links a:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(10, 102, 255, 0.35);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
 /* Icon helpers for “See Code” */
@@ -244,4 +223,50 @@
   width: 16px;
   height: 16px;
   display: inline-block;
+}
+
+/* ============ On-scroll animations ============ */
+
+/* стартовое состояние */
+.revealTop,
+.revealBottom,
+.stagger {
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  will-change: opacity, transform;
+}
+
+/* хедер сверху */
+.inView .revealTop {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* сетка карточек снизу */
+.inView .revealBottom {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.6s ease 0.05s, transform 0.6s ease 0.05s;
+}
+
+/* “ступенькой” — задержка через css var --d */
+.stagger {
+  transition: opacity 0.55s ease, transform 0.55s ease;
+  transition-delay: calc(var(--d, 0) * 110ms);
+}
+.inView .stagger {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ghost {
+  background: #fff;
+  color: var(--primary);
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: none;
+}
+.ghost:hover {
+  background: #f6f8ff;
+  border-color: rgba(37, 99, 235, 0.5);
 }

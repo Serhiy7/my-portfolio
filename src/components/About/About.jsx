@@ -1,9 +1,12 @@
 import { useRef, useEffect } from "react";
+import { useInView } from "../../hooks/useInView";
+import sh from "../../styles/SectionHeader.module.css";
 import styles from "./About.module.css";
 import imgAbout from "/images/about.jpg";
 
 export function About() {
   const sectionRef = useRef(null);
+  const [hdrRef, hdrInView] = useInView({ threshold: 0.3 });
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -45,9 +48,13 @@ export function About() {
 
   return (
     <section id="about" ref={sectionRef} className={styles.about}>
-      <div className={styles.header}>
-        <hr />
-        <h2>ABOUT ME</h2>
+      <div
+        ref={hdrRef}
+        className={`${sh.sectionHeader} ${hdrInView ? sh.inView : ""}`}
+      >
+        <h2>
+          <span>ABOUT ME</span>
+        </h2>
       </div>
       <div className={styles.content}>
         <div className={styles.avatar}>

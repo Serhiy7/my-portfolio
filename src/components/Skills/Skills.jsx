@@ -1,10 +1,12 @@
 // src/components/Skills/Skills.jsx
 import React from "react";
 import { useInView } from "../../hooks/useInView";
+import sh from "../../styles/SectionHeader.module.css";
 import styles from "./Skills.module.css";
 
 export function Skills() {
   const [ref, inView] = useInView({ threshold: 0.3 });
+  const [hdrRef, hdrInView] = useInView({ threshold: 0.3 });
 
   const hard = [
     {
@@ -66,9 +68,13 @@ export function Skills() {
       ref={ref}
       className={`${styles.skills} ${inView ? styles.inView : ""}`}
     >
-      <div className={styles.sectionHeader}>
-        <hr />
-        <h2>SKILLS</h2>
+      <div
+        ref={hdrRef}
+        className={`${sh.sectionHeader} ${hdrInView ? sh.inView : ""}`}
+      >
+        <h2>
+          <span>SKILLS</span>
+        </h2>
       </div>
 
       <div className={styles.columns}>
