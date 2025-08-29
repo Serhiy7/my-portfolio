@@ -1,77 +1,105 @@
 import React from "react";
 import styles from "./Contact.module.css";
+import { useInView } from "../../hooks/useInView";
 
-const Contact = () => {
+export const Contact = () => {
+  // Анимацию запускаем, когда секция на экране на 20%
+  const [ref, inView] = useInView({ threshold: 0.2 });
+
   return (
-    <section id="contact" className={styles.contact}>
+    <section
+      id="contact"
+      ref={ref}
+      className={`${styles.contact} ${inView ? styles.inView : ""}`}
+    >
       <div className={styles.wrapper}>
         {/* LEFT: Tiles */}
-        <div className={styles.colLeft}>
-          <h3 className={styles.title}>Portfolio & Contacts</h3>
+        <div className={`${styles.colLeft} ${styles.revealLeft}`}>
+          <h3 className={styles.title}>Contacts</h3>
 
           <div className={styles.tiles}>
             <a
-              className={styles.tile}
-              href="https://github.com/yourusername"
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 1 }}
+              href="https://github.com/Serhiy7"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className={`${styles.badge} ${styles.git}`}>
                 <i className="fab fa-github" />
               </span>
-              <span className={styles.tileText}>GitHub</span>
+              <span className={styles.tileText}>GitHub / Serhiy7</span>
             </a>
 
             <a
-              className={styles.tile}
-              href="https://www.linkedin.com/in/yourprofile"
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 2 }}
+              href="https://www.linkedin.com/in/serhiy-sukalo-844b1b349"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className={`${styles.badge} ${styles.in}`}>
                 <i className="fab fa-linkedin-in" />
               </span>
-              <span className={styles.tileText}>LinkedIn</span>
-            </a>
-
-            <a className={styles.tile} href="mailto:someone@website.com">
-              <span className={`${styles.badge} ${styles.mail}`}>
-                <i className="fas fa-envelope" />
-              </span>
-              <span className={styles.tileText}>someone@website.com</span>
+              <span className={styles.tileText}>LinkedIn Profile</span>
             </a>
 
             <a
-              className={styles.tile}
-              href="https://t.me/yourhandle"
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 3 }}
+              href="mailto:ssukalo79@gmail.com"
+            >
+              <span className={`${styles.badge} ${styles.mail}`}>
+                <i className="fas fa-envelope" />
+              </span>
+              <span className={styles.tileText}>ssukalo79@gmail.com</span>
+            </a>
+
+            <a
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 4 }}
+              href="https://t.me/Syrovui11"
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className={`${styles.badge} ${styles.tg}`}>
                 <i className="fab fa-telegram-plane" />
               </span>
-              <span className={styles.tileText}>@yourhandle</span>
+              <span className={styles.tileText}>@Syrovui11</span>
             </a>
 
-            <a className={styles.tile} href="tel:+48575551828">
-              <span className={`${styles.badge} ${styles.phone}`}>
-                <i className="fas fa-phone" />
+            <a
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 5 }}
+              href="https://wa.me/380667553203"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={`${styles.badge} ${styles.wa}`}>
+                <i className="fab fa-whatsapp" />
               </span>
-              <span className={styles.tileText}>+48 575-551-828</span>
+              <span className={styles.tileTextColumn}>
+                WhatsApp
+                <small>+380 66 755 32 03</small>
+              </span>
             </a>
 
-            <div className={styles.tile} aria-label="Location">
+            <div
+              className={`${styles.tile} ${styles.stagger}`}
+              style={{ "--d": 6 }}
+              aria-label="Location"
+            >
               <span className={`${styles.badge} ${styles.map}`}>
                 <i className="fas fa-map-marker-alt" />
               </span>
-              <span className={styles.tileText}>Kraków, Poland</span>
+              <span className={styles.tileText}>Flensburg, Germany</span>
             </div>
           </div>
         </div>
 
         {/* RIGHT: Form */}
-        <div className={styles.colRight}>
-          <h3 className={styles.title}>Let’s have a fun</h3>
+        <div className={`${styles.colRight} ${styles.revealRight}`}>
+          <h3 className={styles.title}>Get In Touch</h3>
 
           <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
             <input
@@ -95,5 +123,3 @@ const Contact = () => {
     </section>
   );
 };
-
-export default Contact;
