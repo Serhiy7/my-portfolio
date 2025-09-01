@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./Hero.module.css";
-// если в Vite: public/images/hero-bg.png
-import heroBg from "/images/hero-bg.png";
+import heroBg from "/images/hero-bg.png"; // из public/images
 
 export function Hero() {
   const phrases = ["FRONTEND DEVELOPER", "FULLSTACK DEVELOPER"];
@@ -12,17 +11,17 @@ export function Hero() {
   const [text, setText] = useState("");
   const [cursorOn, setCursorOn] = useState(true);
 
-  useEffect(() => {
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeoutId;
+  // путь будет корректный и в dev, и на gh-pages
+  const cvUrl = `${import.meta.env.BASE_URL}cv/Serhiy_Sukalo_CV.pdf`;
 
+  useEffect(() => {
+    let phraseIndex = 0,
+      charIndex = 0,
+      isDeleting = false,
+      timeoutId;
     const tick = () => {
       const current = phrases[phraseIndex];
-
       if (!isDeleting) {
-        // печатаем
         setText(current.substring(0, ++charIndex));
         if (charIndex === current.length) {
           isDeleting = true;
@@ -30,22 +29,18 @@ export function Hero() {
           return;
         }
       } else {
-        // удаляем
         setText(current.substring(0, --charIndex));
         if (charIndex === 0) {
           isDeleting = false;
           phraseIndex = (phraseIndex + 1) % phrases.length;
         }
       }
-
       timeoutId = setTimeout(tick, isDeleting ? erasingDelay : typingDelay);
     };
-
     tick();
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // мигание курсора
   useEffect(() => {
     const iv = setInterval(() => setCursorOn((c) => !c), 700);
     return () => clearInterval(iv);
@@ -62,7 +57,14 @@ export function Hero() {
         {text}
         {cursorOn && <span className={styles.cursor}>|</span>}
       </h3>
-      <a className={styles.btn} href="#">
+
+      <a
+        className={styles.btn}
+        href={cvUrl}
+        download="Serhiy_Sukalo_CV.pdf"
+        target="_blank"
+        rel="noopener"
+      >
         Download My CV
       </a>
     </header>

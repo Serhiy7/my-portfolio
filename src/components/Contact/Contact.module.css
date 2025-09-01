@@ -7,8 +7,6 @@
 
   padding: 80px 20px;
   background: #fff;
-
-  /* базовое состояние перед входом в зону видимости */
   opacity: 1;
 }
 
@@ -26,7 +24,7 @@
   }
 }
 
-/* колонки (нужны для анимации слева/справа) */
+/* колонки */
 .colLeft,
 .colRight {
   will-change: transform, opacity;
@@ -34,17 +32,17 @@
 
 /* заголовок */
 .title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #222;
-  margin: 0 0 24px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 22px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-left: 4px solid var(--accent);
   padding-left: 10px;
 }
 
-/* tiles grid */
+/* tiles */
 .tiles {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -125,13 +123,35 @@
   font-weight: 500;
 }
 
-/* form */
-.form {
+/* ===== Панель быстрых действий (правая колонка) ===== */
+.chips {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 12px;
+}
+.chip {
+  border: 1px solid #e6eaf0;
+  background: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
 }
 
+.label {
+  display: block;
+  font-size: 13px;
+  color: #586271;
+  margin: 8px 0 6px;
+}
+
+/* базовый input */
 .input {
   border: none;
   border-bottom: 1px solid #e2e5ea;
@@ -148,49 +168,98 @@
   border-color: var(--accent);
   box-shadow: 0 1px 0 0 var(--accent);
 }
-.textarea {
-  resize: none;
+
+/* улучшенная textarea */
+.msgArea {
+  width: 100%; /* шире: во всю колонку */
+  min-height: 132px; /* выше по умолчанию */
+  line-height: 1.5;
+  resize: vertical;
+  font: inherit;
+
+  border: 1px solid #e6eaf0;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+.msgArea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(0, 230, 118, 0.14);
 }
 
-/* button */
-.button {
-  width: 180px;
-  padding: 12px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-600));
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 230, 118, 0.25);
-  transition: transform 0.06s ease, filter 0.2s ease, box-shadow 0.2s ease;
+/* CTA кнопки */
+.ctaRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0 10px;
 }
-.button:hover {
-  filter: saturate(1.05) brightness(0.98);
-}
-.button:active {
-  transform: translateY(1px);
-}
-@media (max-width: 520px) {
-  .button {
-    width: 100%;
+@media (max-width: 640px) {
+  .ctaRow {
+    grid-template-columns: 1fr;
   }
 }
 
-/* =========================
-   АНИМАЦИИ ПО СКРОЛЛУ
-   ========================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #e6eaf0;
+  background: #fff;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+.btn i {
+  font-size: 18px;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.07);
+}
 
-/* базовое скрытое состояние */
+.btnPrimary {
+  background: linear-gradient(180deg, var(--accent), var(--accent-600));
+  border-color: transparent;
+  color: #0b301e;
+}
+
+/* тулзы */
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px dashed #d8dee8;
+  background: #fff;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 14px;
+}
+.tool i {
+  font-size: 16px;
+}
+
+/* ===== Анимации по скроллу ===== */
 .revealLeft,
 .revealRight,
 .stagger {
   opacity: 0;
   transform: translateY(16px);
 }
-
-/* колонки */
 .revealLeft {
   transform: translateX(-40px);
 }
@@ -205,10 +274,8 @@
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* карточки — stagger через css-переменную --d */
 .stagger {
   transition: opacity 0.55s ease, transform 0.55s ease;
-  /* задержка: 1 => 90ms, 2 => 180ms, и т.д. */
   transition-delay: calc(var(--d, 0) * 90ms);
 }
 .inView .stagger {
