@@ -5,6 +5,7 @@ import { Skills } from "./components/Skills/Skills";
 import { LanguageSkills } from "./components/LanguageSkills/LanguageSkills";
 import { Experience } from "./components/Experience/Experience";
 import { Projects } from "./components/Projects/Projects";
+import { Highlights } from "./components/Highlights/Highlights";
 import { Contact } from "./components/Contact/Contact";
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
       <LanguageSkills />
       <Experience />
       <Projects />
+      <Highlights variant="solid" />
       <Contact />
     </>
   );
