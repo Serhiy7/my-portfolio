@@ -169,6 +169,37 @@
 .responsive {
   background: #0ea5e9;
 } /* sky */
+.serverless {
+  background: #111827;
+} /* тёмный neutral для serverless/proxy */
+.playlists {
+  background: #0ea5e9;
+} /* sky */
+.hotkeys {
+  background: #8b5cf6;
+} /* violet */
+.background {
+  background: #10b981;
+} /* emerald */
+
+.booking {
+  background: #06b6d4;
+} /* cyan */
+.validation {
+  background: #f97316;
+} /* orange */
+.ghpages {
+  background: #24292f;
+} /* GitHub black */
+.vite {
+  background: #646cff;
+} /* Vite accent */
+.scss {
+  background: #c6538c;
+} /* SASS pink */
+.hooks {
+  background: #22c55e;
+} /* Hooks = green */
 
 /* ---------- Buttons ---------- */
 .links {

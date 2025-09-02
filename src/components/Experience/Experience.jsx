@@ -6,9 +6,12 @@ import styles from "./Experience.module.css";
 const entries = [
   {
     title: "Website Development",
-    period: "July–December 2024, Krakow, Poland",
+    period: "Krakow, Poland",
     details: [
-      "Collaborated with a team to develop a food delivery website, contributing to key aspects of web functionality and design.",
+      "Contributed to a full-stack food-delivery platform (React + Vite).",
+      "Implemented order management: order confirmation, Stripe Checkout and automatic email notifications.",
+      "Built dynamic label/sticker generation from DB data and user preferences.",
+      "Hardened forms with CSRF protection and input sanitizing; shipped a mobile-first, cross-browser UI.",
     ],
     side: "left",
   },
@@ -16,15 +19,20 @@ const entries = [
     title: "Full-Stack Developer",
     period: "Taxi — Smart Car Rental System",
     details: [
-      "Migration from PHP to React. SPA implementation on Vite + SCSS. UI components, video gallery, booking forms, admin panel. Docker and Stripe API used.",
+      "Migrated a legacy PHP app to a React SPA on Vite with SCSS modules and Hooks-based components.",
+      "Implemented booking flow (date selection, pricing preview), fleet cards and basic admin views.",
+      "Integrated Stripe payments and containerized services with Docker; CI-ready builds.",
+      "Added client-side validation, routing and responsive layouts for consistent UX across devices.",
     ],
     side: "right",
   },
   {
     title: "React Developer",
-    period: "MiniPlayerForYouTube 2025",
+    period: "MiniPlayerForYouTube",
     details: [
-      "Learning HTML, CSS, JavaScript, React, Firebase. Participation in challenges, portfolio creation, Git/GitHub, Figma layouts. Basic PHP and MySQL.",
+      "Built a SPA mini-player with background audio, playlists, hotkeys, and a responsive, accessible UI.",
+      "Used serverless (Vercel) for metadata/proxy, added lazy loading/code-splitting, error boundaries, and ESLint/Prettier.",
+      "Stack: React, Vite, Tailwind CSS, Serverless (Vercel), JavaScript, Git.",
     ],
     side: "left",
   },
@@ -32,7 +40,9 @@ const entries = [
     title: "Frontend Developer",
     period: "Freelance 2024 – 2025",
     details: [
-      "Used Firebase, REST API, Chart.js, local storage, responsive layout and custom interfaces.",
+      "Delivered small dashboards and landing pages for clients with responsive layouts and custom UI components.",
+      "Integrated REST APIs and Firebase (auth / Firestore); visualized data with Chart.js and localStorage state.",
+      "Set up lightweight SEO, a11y basics and deployments to Vercel / GitHub Pages; collaborated via Figma/Trello.",
     ],
     side: "right",
   },
@@ -40,7 +50,9 @@ const entries = [
     title: "Frontend Student",
     period: "Self-learning & Online Courses 2023 – 2024",
     details: [
-      "Learning HTML, CSS, JavaScript, React, Firebase. Participation in challenges, portfolio creation, Git/GitHub, Figma layouts. Basic PHP and MySQL.",
+      "Structured self-learning path: HTML, CSS, JavaScript, React, Git/GitHub, Vite and Figma.",
+      "Built portfolio projects and coding challenges; practiced component design and state management (Hooks/Context).",
+      "Basics of backend: PHP/MySQL; focus on clean code and modular architecture.",
     ],
     side: "left",
   },
@@ -48,7 +60,8 @@ const entries = [
     title: "Electrician",
     period: "November 2018–March 2024",
     details: [
-      "Maintenance and repair of automated ship control systems, including programmable logic controllers (PLC) and monitoring systems. Working with digital control systems (SCADA, HMI).",
+      "Maintenance and troubleshooting of automated ship control systems (PLC) and monitoring (SCADA/HMI).",
+      "Prepared checklists and wiring documentation; collaborated with cross-functional teams with a strong focus on safety and reliability.",
     ],
     side: "right",
   },

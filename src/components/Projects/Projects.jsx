@@ -45,19 +45,31 @@ export const Projects = () => {
           <div className={styles.cardContent}>
             <h3>YouTube Mini Player</h3>
             <p>
-              A mini YouTube player built with React and serverless functions,
-              allowing background audio streaming and playlist features.
+              Lightweight background-listening YouTube mini-player. Queue videos
+              into playlists and keep the audio playing while you browse. Built
+              with React + Vite; serverless endpoints power metadata/proxy and
+              keep the player snappy. Responsive UI with handy keyboard
+              shortcuts.
             </p>
             <div className={styles.tags}>
               <span className={`${styles.tag} ${styles.react}`}>React</span>
-              <span className={`${styles.tag} ${styles.node}`}>Node.js</span>
               <span className={`${styles.tag} ${styles.tailwind}`}>
                 Tailwind CSS
+              </span>
+              <span className={`${styles.tag} ${styles.serverless}`}>
+                Serverless
+              </span>
+              <span className={`${styles.tag} ${styles.playlists}`}>
+                Playlists
+              </span>
+              <span className={`${styles.tag} ${styles.hotkeys}`}>Hotkeys</span>
+              <span className={`${styles.tag} ${styles.background}`}>
+                Background Audio
               </span>
             </div>
             <div className={styles.links}>
               <a
-                href="https://github.com/yourusername/youtube-mini-player"
+                href="https://github.com/Serhiy7/MiniPlayerForYoutube"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.secondaryBtn} ${styles.withIcon}`}
@@ -179,12 +191,33 @@ export const Projects = () => {
           <div className={styles.cardContent}>
             <h3>TaxiRent (Car Rental)</h3>
             <p>
-              A simple car rental site for Poland: fleet listing, booking flow,
-              and responsive UI. Deployed to GitHub Pages.
+              SPA for a car-rental service in Poland built with{" "}
+              <strong>React + Vite</strong>. Componentized UI with{" "}
+              <strong>React Hooks</strong>, styles via{" "}
+              <strong>SASS (SCSS) modules</strong>. Browse the fleet, view specs
+              & daily rates, pick dates/locations with price preview, and submit
+              a booking request. Client-side validation, clear error/success
+              states, and a fully responsive, cross-browser UI. Deployed to
+              GitHub Pages.
             </p>
+
             <div className={styles.tags}>
-              <span className={`${styles.tag} ${styles.html}`}>HTML5/CSS3</span>
-              <span className={`${styles.tag} ${styles.js}`}>JavaScript</span>
+              <span className={`${styles.tag} ${styles.react}`}>React</span>
+              <span className={`${styles.tag} ${styles.vite}`}>Vite</span>
+              <span className={`${styles.tag} ${styles.scss}`}>SASS/SCSS</span>
+              <span className={`${styles.tag} ${styles.hooks}`}>Hooks</span>
+              <span className={`${styles.tag} ${styles.booking}`}>
+                Booking Flow
+              </span>
+              <span className={`${styles.tag} ${styles.validation}`}>
+                Validation
+              </span>
+              <span className={`${styles.tag} ${styles.responsive}`}>
+                Responsive
+              </span>
+              <span className={`${styles.tag} ${styles.ghpages}`}>
+                GitHub Pages
+              </span>
             </div>
             <div className={styles.links}>
               <a
