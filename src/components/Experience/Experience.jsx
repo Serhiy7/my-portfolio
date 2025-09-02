@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useInView } from "../../hooks/useInView";
 import sh from "../../styles/SectionHeader.module.css";
 import styles from "./Experience.module.css";
@@ -68,14 +68,41 @@ const entries = [
 ];
 
 export function Experience() {
+  // наблюдаем секцию
   const [ref, inView] = useInView({ threshold: 0.3 });
   const [hdrRef, hdrInView] = useInView({ threshold: 0.3 });
+
+  // определяем «мобилка/планшет» (≤1024px) и следим за ресайзом
+  const getIsSmall = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(max-width: 1024px)").matches;
+
+  const [isSmall, setIsSmall] = useState(getIsSmall);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 1024px)");
+    const onChange = () => setIsSmall(mq.matches);
+    mq.addEventListener?.("change", onChange);
+    return () => mq.removeEventListener?.("change", onChange);
+  }, []);
+
+  // флаг «анимация уже отыграла» для мобилы/планшета
+  const [playedOnce, setPlayedOnce] = useState(false);
+  useEffect(() => {
+    if (isSmall && inView && !playedOnce) {
+      setPlayedOnce(true);
+    }
+  }, [isSmall, inView, playedOnce]);
+
+  // итог: на малых — держим класс .inView после первого появления; на десктопе — как раньше
+  const sectionInViewClass = (isSmall ? inView || playedOnce : inView)
+    ? styles.inView
+    : "";
 
   return (
     <section
       id="experience"
       ref={ref}
-      className={`${styles.experience} ${inView ? styles.inView : ""}`}
+      className={`${styles.experience} ${sectionInViewClass}`}
     >
       <div
         ref={hdrRef}
@@ -88,7 +115,6 @@ export function Experience() {
 
       <div className={styles.timeline}>
         <div className={styles.line} />
-
         {entries.map((e, i) => (
           <div key={i} className={`${styles.entry} ${styles[e.side]}`}>
             <div className={styles.dot} />

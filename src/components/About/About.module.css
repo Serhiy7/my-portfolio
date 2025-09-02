@@ -44,13 +44,13 @@
   margin-bottom: 24px;
 }
 
+/* СТАРЫЙ ПОДХОД: изначально скрыты и сдвинуты вправо */
 .info ul li {
   display: flex;
   align-items: center;
   gap: 12px;
-
-  /* по умолчанию элементы ВИДИМЫ — анимация задаёт стартовое состояние сама */
-  --slideFrom: 90px; /* стартовое смещение для анимации */
+  opacity: 0;
+  transform: translateX(100px);
 }
 
 /* иконочка */
@@ -76,19 +76,15 @@
   line-height: 1.6;
 }
 
-/* Ключевые кадры — стартуем из смещения, которое задаём переменной */
+/* Ключевые кадры — как в старой версии */
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(var(--slideFrom));
-  }
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-/* Запуск анимации только когда секция в зоне видимости */
+/* Запуск анимации, когда секция в зоне видимости */
 .in-view .info ul li {
   animation: slideIn 0.6s ease-out forwards;
 }
@@ -181,10 +177,6 @@
     row-gap: 14px;
   }
 
-  /* на мобильных анимация чуть короче смещает */
-  .info ul li {
-    --slideFrom: 36px;
-  }
   .info ul li span {
     width: 44px;
     height: 44px;
@@ -212,9 +204,14 @@
   }
 }
 
-/* accessibility: если пользователь отключил анимации */
+/* accessibility: если пользователь отключил анимации,
+   делаем элементы видимыми сразу */
 @media (prefers-reduced-motion: reduce) {
   .in-view .info ul li {
     animation: none !important;
+  }
+  .info ul li {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
