@@ -151,6 +151,24 @@
 .gatsby {
   background: #d63384;
 }
+.stripe {
+  background: #635bff;
+} /* фирменный цвет Stripe */
+.admin {
+  background: #6366f1;
+} /* indigo */
+.db {
+  background: #14b8a6;
+} /* teal */
+.email {
+  background: #f59e0b;
+} /* amber */
+.security {
+  background: #ef4444;
+} /* red */
+.responsive {
+  background: #0ea5e9;
+} /* sky */
 
 /* ---------- Buttons ---------- */
 .links {
