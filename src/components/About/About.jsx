@@ -77,12 +77,10 @@ export function About() {
             ))}
           </ul>
           <p>
-            I am a passionate and motivated junior front-end developer dedicated
-            to creating responsive, user-friendly web interfaces. My strengths
-            lie in flexibility, a commitment to learning new technologies, and
-            turning ideas into engaging digital experiences. A strong team
-            player with a focus on collaboration, I am eager to grow, tackle
-            challenges, and contribute to delivering high-quality solutions.
+            I’m a pragmatic junior front-end developer who enjoys turning ideas
+            into fast, accessible UIs. I iterate quickly, keep code clean, and
+            collaborate well with designers and backend. Looking to join a team
+            where I can grow and deliver user-facing features end-to-end.
           </p>
         </div>
       </div>
