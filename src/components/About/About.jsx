@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import { useInView } from "../../hooks/useInView";
 import sh from "../../styles/SectionHeader.module.css";
 import styles from "./About.module.css";
-import imgAbout from "/images/about.jpg";
+import imgAbout from "/images/about.jpg"; // fallback (есть у тебя)
 
 export function About() {
   const sectionRef = useRef(null);
@@ -56,11 +56,22 @@ export function About() {
           <span>ABOUT ME</span>
         </h2>
       </div>
+
       <div className={styles.content}>
         <div className={styles.avatar}>
-          <img src={imgAbout} alt="Avatar" />
+          {/* быстрый, без CLS: лениво + async-декод */}
+          <img
+            src={imgAbout}
+            alt="Avatar"
+            loading="lazy"
+            decoding="async"
+            fetchPriority="low"
+            width="400"
+            height="400"
+          />
           <p>Frontend Developer</p>
         </div>
+
         <div className={styles.info}>
           <ul>
             {items.map((it, i) => (

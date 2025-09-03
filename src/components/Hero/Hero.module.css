@@ -10,9 +10,8 @@ body {
 
 /* Hero Section */
 header.hero {
-  /* путь к вашему фону */
-  background: url("/images/hero-bg.png") no-repeat center center/cover;
-  height: calc(100vh);
+  position: relative;
+  min-height: 100dvh; /* корректнее на мобильных */
   color: #fff;
 
   display: flex;
@@ -20,7 +19,20 @@ header.hero {
   align-items: center;
   justify-content: center;
   text-align: center;
-  position: relative;
+}
+
+/* Контейнер фона */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #0d1220; /* запасной цвет фона, пока картинка грузится */
+}
+.heroBg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* аналог background-size: cover */
 }
 
 /* Подзаголовок */
@@ -75,4 +87,15 @@ header.hero {
 }
 .btn:hover {
   background: #00cc60;
+}
+
+/* Небольшая адаптация шрифтов на маленьких экранах */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+  .hero h3 {
+    font-size: 20px;
+    height: 26px;
+  }
 }

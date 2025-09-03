@@ -11,7 +11,7 @@ export function Hero() {
   const [text, setText] = useState("");
   const [cursorOn, setCursorOn] = useState(true);
 
-  // путь будет корректный и в dev, и на gh-pages
+  // корректный путь и в dev, и на gh-pages
   const cvUrl = `${import.meta.env.BASE_URL}cv/Serhiy_Sukalo_CV.pdf`;
 
   useEffect(() => {
@@ -47,10 +47,12 @@ export function Hero() {
   }, []);
 
   return (
-    <header
-      className={styles.hero}
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
+    <header className={styles.hero}>
+      {/* Фон отдельным изображением — быстрее, чем CSS background */}
+      <div className={styles.heroBg} aria-hidden="true">
+        <img src={heroBg} alt="" fetchPriority="high" decoding="async" />
+      </div>
+
       <h2>HELLO I'M</h2>
       <h1>Serhiy Sukalo</h1>
       <h3>

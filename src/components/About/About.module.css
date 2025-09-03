@@ -1,4 +1,3 @@
-/* src/components/About/About.module.css */
 .about {
   padding: 80px 0;
   background: #fff;
@@ -19,8 +18,12 @@
   text-align: center;
 }
 .avatar img {
+  display: block; /* убираем возможные пробелы/сползания */
   width: 100%;
+  height: auto;
   max-width: 400px;
+  aspect-ratio: 1 / 1; /* стабильное место под фото => без CLS */
+  object-fit: cover;
   border: 2px solid #00e676;
   border-radius: 4px;
 }
@@ -34,7 +37,6 @@
 .info {
   flex: 1;
 }
-
 .info ul {
   list-style: none;
   display: grid;
@@ -55,11 +57,12 @@
 
 /* иконочка */
 .info ul li span {
+  flex: 0 0 50px; /* <— добавили */
+  width: 50px; /* как и было */
+  height: 50px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
   background: #00e676;
   color: #fff;
   border-radius: 4px;
@@ -67,6 +70,11 @@
 }
 .info ul li div {
   font-size: 16px;
+  flex: 1 1 auto; /* <— добавили, чтобы занимал оставшееся место */
+  min-width: 0; /* <— важно для корректного переноса в flex */
+  overflow-wrap: anywhere; /* <— переносить где угодно при нехватке места */
+  word-break: break-word; /* <— и классический перенос слов */
+  hyphens: auto; /* <— мягкие переносы, если язык это поддерживает */
 }
 
 /* Описание */
@@ -102,11 +110,8 @@
   animation-delay: 0.6s;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+/* =========================  RESPONSIVE  ========================= */
 
-/* large tablet */
 @media (max-width: 1200px) {
   .content {
     max-width: calc(100% - 80px);
@@ -130,7 +135,6 @@
   }
 }
 
-/* small tablet */
 @media (max-width: 900px) {
   .content {
     gap: 28px;
@@ -147,7 +151,7 @@
 }
 
 /* mobile: одна колонка, аватар сверху */
-@media (max-width: 760px) {
+@media (max-width: 860px) {
   .about {
     padding: 56px 0;
   }
@@ -160,11 +164,11 @@
   }
   .avatar {
     width: 100%;
-  } /* добавил */
-  .avatar img {
-    width: 100%; /* добавил на всякий */
-    max-width: 100%; /* ← было 86vw */
   }
+  .avatar img {
+    width: 100%;
+    max-width: 100%;
+  } /* гарантированно без горизонт. скролла */
   .avatar p {
     margin-top: 8px;
     font-size: 16px;
@@ -177,7 +181,6 @@
     grid-template-columns: 1fr;
     row-gap: 14px;
   }
-
   .info ul li span {
     width: 44px;
     height: 44px;
@@ -190,7 +193,6 @@
   }
 }
 
-/* very small phones */
 @media (max-width: 400px) {
   .info ul li span {
     width: 40px;
@@ -205,8 +207,7 @@
   }
 }
 
-/* accessibility: если пользователь отключил анимации,
-   делаем элементы видимыми сразу */
+/* accessibility */
 @media (prefers-reduced-motion: reduce) {
   .in-view .info ul li {
     animation: none !important;
