@@ -159,10 +159,11 @@
     gap: 20px;
   }
   .avatar {
-    flex-basis: auto;
-  }
+    width: 100%;
+  } /* добавил */
   .avatar img {
-    max-width: 86vw;
+    width: 100%; /* добавил на всякий */
+    max-width: 100%; /* ← было 86vw */
   }
   .avatar p {
     margin-top: 8px;
@@ -200,7 +201,7 @@
     font-size: 15px;
   }
   .avatar img {
-    max-width: 92vw;
+    max-width: 100%;
   }
 }
 
